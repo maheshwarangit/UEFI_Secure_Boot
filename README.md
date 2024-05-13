@@ -13,13 +13,19 @@ openssl x509 -in Public_DB_Cert.crt -outform der -out Public_DB_Cert.der
 # Create a disk:
 
 guestfish
+
 allocate disk1.img 100MB
+
 run
+
 part-disk /dev/sda mbr
+
 mkfs vfat /dev/sda1
+
 mount /dev/sda1 /
 
 copy-in bzImage_Unsigned.bin /
+
 copy-in initrd.img /
 
 quit
